@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+name: pipeline-assignment-run
+spec:
+pipelineRef:
+name: pipeline-assignment
+workspaces:
+- name: pipeline-assignment-data
+volumeClaimTemplate:
+spec:
+accessModes:
+- ReadWriteOnce
+resources:
+requests: 
+storage: 1Gi
